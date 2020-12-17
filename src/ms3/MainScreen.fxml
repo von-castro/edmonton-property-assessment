@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="MainAnchorPane" minHeight="863.0" minWidth="1290.0" prefHeight="863.0" prefWidth="1290.0" styleClass="MainAnchorPane" stylesheets="@MainScreen.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ms3.MainScreenController">
+   <children>
+      <StackPane prefHeight="428.0" prefWidth="235.0" styleClass="SideNavPane" stylesheets="@MainScreen.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="1045.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <VBox prefHeight="582.0" prefWidth="255.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="251.0" styleClass="TitleLabel" stylesheets="@MainScreen.css" text="Find Property Assessment">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="251.0" styleClass="FilterLabels" stylesheets="@MainScreen.css" text="Choose CSV file:">
+                     <VBox.margin>
+                        <Insets left="10.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleBrowseAction" text="Browse" />
+                        <TextField fx:id="browseTextField" prefHeight="25.0" prefWidth="181.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="25.0" prefWidth="281.0">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="1.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label fx:id="loadVerificationLabel" contentDisplay="CENTER" prefHeight="25.0" prefWidth="178.0" styleClass="VerificationLabel" stylesheets="@MainScreen.css" text="[Verification label]" visible="false">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#handleSubmitAction" text="Submit" />
+                     </children>
+                  </HBox>
+                  <Label prefHeight="17.0" prefWidth="251.0" styleClass="FilterLabels" stylesheets="@MainScreen.css" text="Filters:">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="251.0" styleClass="FilterLabels" stylesheets="@MainScreen.css" text="Account Number:">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="accountNumberTF">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label prefHeight="17.0" prefWidth="251.0" styleClass="FilterLabels" stylesheets="@MainScreen.css" text="Address">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="251.0" styleClass="FilterLabels" stylesheets="@MainScreen.css" text="(#suite #house street): ">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="addressTF">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label prefHeight="17.0" prefWidth="251.0" styleClass="FilterLabels" stylesheets="@MainScreen.css" text="Neighbourhood:">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="neighbourhoodTF">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label prefHeight="17.0" prefWidth="251.0" styleClass="FilterLabels" stylesheets="@MainScreen.css" text="Assessment Class:">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ComboBox fx:id="assessmentClassCB" minWidth="235.0" prefWidth="235.0">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </ComboBox>
+                  <HBox prefHeight="33.0" prefWidth="215.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleSearchButton" styleClass="FilterButtons" stylesheets="@MainScreen.css" text="Search">
+                           <HBox.margin>
+                              <Insets right="15.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleResetButton" prefWidth="77.0" styleClass="FilterButtons" stylesheets="@MainScreen.css" text="Reset" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <TextArea fx:id="statisticsTA" prefHeight="200.0" prefWidth="200.0" styleClass="StatisticsTextArea" stylesheets="@MainScreen.css">
+                     <VBox.margin>
+                        <Insets left="10.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                  </TextArea>
+               </children>
+            </VBox>
+         </children></StackPane>
+      <StackPane id="ContentPane" layoutX="245.0" layoutY="10.0" styleClass="ContentPane" stylesheets="@MainScreen.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Property Data">
+                     <content>
+                        <TableView id="TableView" fx:id="propertyTableView" prefHeight="200.0" prefWidth="200.0" styleClass="TableView" stylesheets="@MainScreen.css">
+                           <columns>
+                              <TableColumn fx:id="accountNumberColumn" prefWidth="100.0" resizable="false" text="Account" />
+                              <TableColumn fx:id="addressColumn" prefWidth="260.0" resizable="false" text="Address" />
+                              <TableColumn fx:id="assessedValueColumn" prefWidth="120.0" resizable="false" text="Assessed Value" />
+                              <TableColumn fx:id="assessmentClassColumn" prefWidth="120.0" resizable="false" text="Assessment Class" />
+                              <TableColumn fx:id="neighbourhoodColumn" prefWidth="184.94" resizable="false" text="Neighbourhood" />
+                              <TableColumn fx:id="latitudeColumn" prefWidth="100.0" resizable="false" text="Latitude" />
+                              <TableColumn fx:id="longitudeColumn" prefWidth="100.0" resizable="false" text="Longitude" />
+                           </columns>
+                        </TableView>
+                     </content>
+                  </Tab>
+                <Tab onSelectionChanged="#loadBarChart" text="Statistics Summary">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <BarChart fx:id="propertyBarChart" layoutX="170.0" layoutY="129.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </BarChart>
+                           </children>
+                        </AnchorPane>
+                     </content></Tab>
+              </tabs>
+            </TabPane>
+         </children></StackPane>
+   </children>
+</AnchorPane>
